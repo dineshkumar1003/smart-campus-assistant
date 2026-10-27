@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      // Gracefully ignore benign Vite HMR WebSocket disconnects in AI Studio preview environment
+      window.addEventListener('unhandledrejection', function(event) {
+        if (
+          event?.reason?.message === 'WebSocket closed without opened.' ||
+          (typeof event?.reason?.message === 'string' && event.reason.message.includes('WebSocket'))
+        ) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      });
+      window.addEventListener('error', function(event) {
+        if (
+          event?.message === 'WebSocket closed without opened.' ||
+          (typeof event?.message === 'string' && event.message.includes('WebSocket'))
+        ) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Campus Assistant</title>
+    <meta name="description" content="An intelligent, responsive, full-stack AI web assistant for campus students, faculty, and developers featuring multi-turn chat, voice interaction, camera vision, document analysis, study workspaces, and productivity tools." />
+    <meta property="og:title" content="Smart Campus Assistant" />
+    <meta property="og:description" content="An intelligent, responsive, full-stack AI web assistant for campus students, faculty, and developers featuring multi-turn chat, voice interaction, camera vision, document analysis, study workspaces, and productivity tools." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

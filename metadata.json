@@ -1,0 +1,11 @@
+{
+  "name": "Smart Campus Assistant",
+  "description": "An intelligent, responsive, full-stack AI web assistant for campus students, faculty, and developers featuring multi-turn chat, voice interaction, camera vision, document analysis, study workspaces, and productivity tools.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
